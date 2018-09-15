@@ -12,143 +12,37 @@
         <script src="main.js"></script>
     </head>
     <body>
-        <div class="w3-top">
-            <div class="w3-bar" id="myNavbar">
-                <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-                <i class="fa fa-bars"></i></a>
-                <a href="#home" class="w3-bar-item w3-button" style="color:black">HOME</a>
-                <a href="#about" class="w3-bar-item w3-button w3-hide-small" style="color:black"><i class="fa fa-user"></i> ABOUT</a>
+        <div class="preload">
+            <div class = "logo">
+                <img class="w3-image" src="Assets/motto.png">
             </div>
-
-            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-                <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-                <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-                <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-            </div>
-        </div>
-
-        <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-            <div class="w3-display-middle" style="white-space:nowrap;padding-right:5em;padding-bottom: 10em">
-                <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Memoize</span>
-            </div>
-            <div class="w3-display-middle" style="white-space:nowrap;padding-right:5em;padding-bottom: 3em">
-                <span>
-                    <a href = "https://www.facebook.com/jocelyn.shen.3" target = "_blank" class="w3-button">
-                        <i class="fa fa-facebook" style="color:black"></i>
-                    </a><a style="color:black">|</a>
-                </span>
-            </div>
-        </div>
-
-        <div class="w3-content w3-container w3-padding-64" id="about">
-            <h3 class="w3-center">ABOUT ME</h3>
-            <div class="w3-row">
-                <div class="w3-col m6 w3-center w3-padding-large">
-                    <img src="/Assets/jocelyn.jpg" class="w3-round w3-image" alt="Photo of Me" width="250" height="333">
+            <div class = "loader-frame">
+                <div class="loader1" id = "loader1">
                 </div>
-                <div class="w3-col m6">
-                  <p>Text</p>
-                </div>
-            </div>
-            <p class="w3-wide"><i class="fa fa-table"></i>SQL</p>
-            <div class="w3-light-grey">
-                <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:40%">40%</div>
-            </div>
-            <p class="w3-wide" style="padding-bottom: 1em"></p>
-        </div>
-
-        <!-- Second Parallax Image with Portfolio Text -->
-        <div class="bgimg-3 w3-display-container w3-opacity-min" id="writing">
-            <div  class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">WRITING</span>
-            </div>
-        </div>
-        <div class="w3-row-padding" >
-            <h3 class="w3-center"style="padding-top:1em">NOVELS</h3>
-            <h4 class="w3-center" ><b><em>Idle Winds</em></b></h4>
-        </div>
-        <p style="padding-left:5em;padding-right:5em;padding-bottom:2em">TEXT</p>
-
-        <div class="bgimg-6 w3-display-container w3-opacity-min" id="art" >
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">ARTWORK</span>
-            </div>
-        </div>
-
-        <div class="w3-content w3-container w3-padding-64">
-          <h3 class="w3-center">MY ARTWORK</h3>
-          <div class="w3-row-padding w3-center">
-            <div class="w3-col m3">
-              <img src="/Assets/acadiainacrylic.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Acadia in Acrylic">
-            </div>
-
-            <div class="w3-col m3">
-              <img src="Assets/thepool.jpg" style="width:100%;" onclick="onClick(this)" class="w3-hover-opacity" alt="The Pool">
-            </div>
-
-            <div class="w3-col m3">
-              <img src="Assets/bokehsinblack.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bokehs in Black">
-            </div>
-
-            <div class="w3-col m3">
-              <img src="Assets/passionflower.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Passion Flower">
-            </div>
-          </div>
-
-          <div class="w3-row-padding w3-center w3-section">
-            <button class="w3-button w3-padding-large w3-light-grey">LOAD MORE</button>
-          </div>
-        </div>
-
-        <!-- Modal for full size images on click-->
-        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-            <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-                <img id="img01" class="w3-image">
-                <p id="caption" class="w3-opacity w3-large"></p>
-            </div>
-        </div>
-        <div class="bgimg-4 w3-display-container w3-opacity-min"id="contact">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-            </div>
-        </div>
-        <div  class="w3-content w3-container" >
-            <p class="w3-center">
-            <div class="w3-row w3-section">
-                <div class="w3-col m3 w3-container"></div>
-                <div class="w3-col m8 w3-panel">
-                    <div class="w3-large w3-margin-bottom">
-                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Los Angeles, US<br>
-                        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +1 (310) 980-2254<br>
-                        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: joceshen@mit.edu<br>
-                    </div>
+                <div class="loader2" id = "loader2">
                 </div>
             </div>
         </div>
+        <script>
+        (function() {
+            var preload = document.getElementById("preload");
+            var loading = 0;
+            var id = setInterval(frame, 64);
 
-        <!-- Footer -->
-        <footer class="w3-center w3-padding-64 ">
-          <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>HOME</a>
-          <div class="w3-xlarge w3-section">
-          <a href="https://www.facebook.com/jocelyn.shen.3" class="w3-button">
-          <i class="fa fa-facebook-official w3-hover-opacity"></i>
-          </a>
-         <a href="https://www.instagram.com/jocie_shen/" class="w3-button">
-          <i class="fa fa-instagram w3-hover-opacity"></i>
-          </a>
-              <a href="https://www.linkedin.com/in/jocelyn-shen/" class="w3-button">
-          <i class="fa fa-linkedin w3-hover-opacity"></i>
-          </a>
-              <a href="https://www.github.com/jocelynshen/" class="w3-button">
-          <i class="fa fa-github w3-hover-opacity"></i>
-          </a>
-              <a href="https://medium.com/@jocelyn.j.shen" class="w3-button">
-          <i class="fa fa-medium w3-hover-opacity"></i>
-          </a>
+            function frame() {
+                if(loading==100){
+                    clearInterval(id);
+                    window.open("welcome.html", "_self");
+                }
+                     else{
+                loading=loading+1;
+                if(loading==90){
+                    preload.style.animation = "fadeout 1s ease";
+                }
+            }
+            }
 
-          </div>
-        </footer>
+        })();
+        </script>
     </body>
 </html>
