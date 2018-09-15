@@ -13,26 +13,72 @@ $('.dots li').click(function(){
   $(this).addClass('active');
 });
 
-$("input").change(function(e) {
-
-    for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
-        
-        var file = e.originalEvent.srcElement.files[i];
-        
-        var img = document.createElement("img");
-        var reader = new FileReader();
-        reader.onloadend = function() {
-             img.src = reader.result;
-        }
-        reader.readAsDataURL(file);
-        $("input").after(img);
-    }
-});
-
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
 }
+
+
+function main()
+{
+    $(function(){
+        var picker = document.getElementById('file');
+        picker.addEventListener('change', loadImageFileAsURL)
+    })
+}
+var myHeaders =[];
+function loadImageFileAsURL(e)
+{
+    var filesSelected = document.getElementById("file").files;
+    if (filesSelected.length > 0)
+    {
+        var fileToLoad = filesSelected[0];
+
+        if (fileToLoad.type.match("image.*"))
+        {
+            var fileReader = new FileReader();
+            fileReader.onload = function(fileLoadedEvent) 
+            {
+                
+                var imageLoaded = document.createElement("img");
+                var x = document.createElement("HEADER");
+                x.setAttribute("id", "myHeader");
+                x.setAttribute("class", "w3-center")
+                imageLoaded.src = fileLoadedEvent.target.result;
+                imageLoaded.className = "w3-image w3-padding-large";
+                document.body.appendChild(x);
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10) {
+                    dd = '0'+dd
+                } 
+                if(mm<10) {
+                    mm = '0'+mm
+                } 
+                today = mm+ '/' + dd + '/' + yyyy;
+                var y = document.createElement("H3"); 
+                var t = document.createTextNode(today);
+                y.appendChild(t);
+                if(myHeaders.includes(today)){
+                    
+                }
+                else{
+                    document.getElementById("myHeader").appendChild(y);
+                    myHeaders.push(today);
+                }
+                
+                document.body.appendChild(imageLoaded);
+                
+                
+            }
+            fileReader.readAsDataURL(fileToLoad);
+        }
+    }
+}
+main();
+
 

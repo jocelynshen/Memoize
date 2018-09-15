@@ -9,7 +9,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="main.css">
         <link rel="icon" type="image/ico" href="/Assets/favicon.ico">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
         <script src="main.js"></script>
+        
     </head>
     <body>
         <div class="w3-top">
@@ -20,66 +24,21 @@
             </div>
 
             <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-right w3-card w3-animate-top" onclick="toggleFunction()">
-                <a href="#about" class="w3-bar-item w3-button " onclick="toggleFunction()">
-                    <form action="/action_page.php">
-                      <input type="text" placeholder="Search.." name="search">
+                <a class="w3-bar-item w3-button " onclick="toggleFunction()">
+                    <input type="text" placeholder="Search.." name="search">
                       <button type="submit"><i class="fa fa-search"></i></button>
-                    </form></a>
+                </a>
                 <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;WALKON's Mission&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;Account&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </div>
         </div>
 
         <div class="w3-content w3-container w3-padding-64" id="about">
-            <script type='text/javascript'>
-            function main()
-            {
-                //var inputFileToLoad = document.createElement("input");
-                /*inputFileToLoad.type = "file";
-                inputFileToLoad.id = "inputFileToLoad";
-                document.body.appendChild(inputFileToLoad);*/
-
-                var buttonLoadFile = document.createElement("button");
-                buttonLoadFile.onclick = loadImageFileAsURL;
-                buttonLoadFile.textContent = "Load Selected File";
-                document.body.appendChild(buttonLoadFile);
-            }
-
-            function loadImageFileAsURL()
-            {
-                var filesSelected = document.getElementById("inputFileToLoad").files;
-                if (filesSelected.length > 0)
-                {
-                    var fileToLoad = filesSelected[0];
-
-                    if (fileToLoad.type.match("image.*"))
-                    {
-                        var fileReader = new FileReader();
-                        fileReader.onload = function(fileLoadedEvent) 
-                        {
-                            var imageLoaded = document.createElement("img");
-                            imageLoaded.src = fileLoadedEvent.target.result;
-                            document.body.appendChild(imageLoaded);
-                        };
-                        fileReader.readAsDataURL(fileToLoad);
-                    }
-                }
-            }
-            main();
-            </script>
             <div class="w3-row w3-center">
                 <input type="file" name="file" id="file" class="inputfile" accept="image/*" capture="filesystem"/>
                 <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button"><label for="file">ADD MEMO</label></span>
                 <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button">THROWBACK</span>
             </div>
-            
-            <div class="w3-content w3-container w3-padding-small">
-          <h3 class="w3-center">IMAGE 1</h3>
-          <div class="w3-row-padding w3-center">
-              <img src="Assets/icon.png" onclick="onClick(this)" class="w3-hover-opacity w3-image" style="width:50%;height:auto;">
-              
-          </div>
-        </div>
         </div>
 
         <!-- Modal for full size images on click-->
