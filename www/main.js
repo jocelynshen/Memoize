@@ -56,7 +56,6 @@ function onClick(element) {
 
 
 function makeAngry(){
-    
     var url = document.getElementById("img01").src;
     
     db.collection("chats").where("screenURL", "==", url).get().then(function(querySnapshot) {
