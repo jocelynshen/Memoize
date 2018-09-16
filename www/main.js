@@ -60,7 +60,7 @@ function main()
     })
 }
 
-
+//For each uploaded file (probably just 1), upload to cloud and run retrieveImageUrl (which downloads the file again and displays)
 function myFunction(memoizeRef){
     var x = document.getElementById("file");
     var txt = "";
@@ -94,6 +94,8 @@ function myFunction(memoizeRef){
 }
 
 var myHeaders =[];
+
+//Called when file selected from file dialogue, calls myFunction
 function loadImageFileAsURL(e)
 {
     var filesSelected = document.getElementById("file").files;
@@ -108,6 +110,8 @@ function loadImageFileAsURL(e)
         }
     }
 }
+
+//loads image file from storage
 function retrieveImageUrl(memoizeRef, filename){
      /*
             var storageRef = firebase.storage().ref();
@@ -121,7 +125,7 @@ function retrieveImageUrl(memoizeRef, filename){
               var imageLoaded = document.createElement("img");
             imageLoaded.src = test;
             imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
-            document.body.appendChild(imageLoaded);
+            document.getElementById("chatDisplay").appendChild(imageLoaded);
             }).catch(function(error) {
 
             });
