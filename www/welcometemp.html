@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Memoize</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" type="image/ico" href="/Assets/favicon.ico">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+
+        <script src="main.js"></script>
+        <script>
+             // Initialize Firebase
+            var fb = initializeFirebase();
+            var db = fb[0];
+            var storage = fb[1];
+
+            db.settings({
+              timestampsInSnapshots: true
+            });
+
+
+            var storageRef = storage.ref();
+
+            var memoizeRef = storageRef.child('memoize');
+
+            console.log(firebase.auth().currentUser);
+            firebase.auth().onAuthStateChanged(function(user) {
+                  if (user) {
+                    // User is signed in.
+                    console.log("signedin");
+                  } else {
+                    // No user is signed in.
+                    console.log("not");
+                  }
+                    var user = firebase.auth().currentUser;
+                    var name, email, photoUrl, uid, emailVerified;
+
+                    if (user != null) {
+                      name = user.displayName;
+                      email = user.email;
+                      photoUrl = user.photoURL;
+                      emailVerified = user.emailVerified;
+                      uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                                       // this value to authenticate with your backend server, if
+                                       // you have one. Use User.getToken() instead.
+                    }
+                    /*
+                    addChat(db, "Joce", uid, "www.url.com/screenshot.png");
+                    addChat(db, "Joce", uid, "sad", "https://hackmit.org/assets/graphics/logo.svg");
+                    console.log("test1");
+                    addChat(db, "Joce", uid, "sad", "https://hackmit.org/assets/graphics/logo.svg");
+                    console.log("test1");
+                    addChat(db, "Soomin", uid, "sad", "https://hackmit.org/assets/graphics/logo.svg");
+                    addChat(db, "Soomin", uid, "sad", "https://hackmit.org/assets/graphics/logo.svg");
+                    console.log("test1");
+                    addChat(db, "Annie", uid, "sad", "https://hackmit.org/assets/graphics/logo.svg");
+                    addChat(db, "Annie", uid, "sad", "https://hackmit.org/assets/graphics/logo.svg");
+                    */
+                });
+            
+            
+
+
+
+        </script>
+
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+
+
+
+        <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '/index.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+        // tosUrl and privacyPolicyUrl accept either url string or a callback
+        // function.
+        // Terms of service url/callback.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url/callback.
+        privacyPolicyUrl: function() {
+          window.location.assign('<your-privacy-policy-url>');
+        }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    </head>
+    <body>
+        <div class="w3-top">
+            <div class="w3-card w3-animate-top w3-black" id="myNavbar">
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
+                <i class="fa fa-caret-down " ></i></a>
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large" href="#home" style="font-size:100%"> <strong>M&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;E</strong></a>          
+            </div>
+
+            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-right w3-card w3-animate-top" onclick="toggleFunction()">
+                
+                <a class="w3-bar-item w3-button " onclick="toggleFunction()">
+                    <input type="text" placeholder="Search.." name="search">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                </a>
+                <a href="mission.html" class="w3-bar-item w3-button" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;WALKON's Mission&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;Account&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>
+            
+        </div>
+
+        <div class="w3-content w3-container w3-padding-64" id="about">
+            
+            <div class="w3-row w3-center">
+                <input type="file" id="file" class="inputfile" accept="image/*" capture="filesystem"/>
+                <script>
+                    
+                </script>
+                <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button"><label for="file">ADD MEMO</label></span>
+                <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button">THROWBACK</span>
+            </div>
+        </div>
+
+        <!-- Modal for full size images on click-->
+        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+            <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                <img id="img01" class="w3-image">
+                <p id="caption" class="w3-opacity w3-large"></p>
+            </div>
+        </div>
+        <script>
+            var chatsRef = db.collection("chats");
+            console.log("chatsref testing")
+            console.log(chatsRef);
+            var query = chatsRef.where("chatWith", "==", "Soomin");
+            console.log(query);
+
+        </script>
+        <div id="chatDisplay"></div>
+        <script>
+            //clearChatDisplay();
+        </script>
+    </body>
+</html>
