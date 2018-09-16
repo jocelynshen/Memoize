@@ -52,6 +52,223 @@ function onClick(element) {
     
 }
 
+
+function makeAngry(){
+    
+    var url = document.getElementById("img01").src;
+    
+    db.collection("chats").where("screenURL", "==", url).get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            doc.ref.update({
+                emotion: "angry"
+            });
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function makeCry(){
+    
+    var url = document.getElementById("img01").src;
+    
+    db.collection("chats").where("screenURL", "==", url).get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            doc.ref.update({
+                emotion: "cry"
+            });
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function makeFunny(){
+    
+    var url = document.getElementById("img01").src;
+    
+    db.collection("chats").where("screenURL", "==", url).get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            doc.ref.update({
+                emotion: "funny"
+            });
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function makeHappy(){
+    
+    var url = document.getElementById("img01").src;
+    
+    db.collection("chats").where("screenURL", "==", url).get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            doc.ref.update({
+                emotion: "happy"
+            });
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function makeImportant(){
+    
+    var url = document.getElementById("img01").src;
+    
+    db.collection("chats").where("screenURL", "==", url).get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            doc.ref.update({
+                emotion: "important"
+            });
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+
+////////////////////FIND FUNCTIONS
+function findFunny(){
+    db.collection("chats").where("emotion", "==", "funny").get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            displaySingleChat(doc.data());
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function findAngry(){
+    db.collection("chats").where("emotion", "==", "angry").get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            displaySingleChat(doc.data());
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function findCry(){
+    db.collection("chats").where("emotion", "==", "cry").get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            displaySingleChat(doc.data());
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function findHappy(){
+    db.collection("chats").where("emotion", "==", "Happy").get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            displaySingleChat(doc.data());
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function findImportant(){
+    db.collection("chats").where("emotion", "==", "important").get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            displaySingleChat(doc.data());
+            //console.log("makeangry?");
+            //console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+function findName(){
+    var name = document.getElementById('nameSearch').value;
+    db.collection("chats").where("chatWith", "==", name).get().then(function(querySnapshot) {
+
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            displaySingleChat(doc.data());
+            console.log("name?");
+            console.log(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+    toggleFunction();
+}
+///////////////////////end FIND FUNCTIONS
 function setName(){
     var name = document.getElementById('myText').value
       console.log(name);
@@ -66,6 +283,39 @@ function main()
         picker.addEventListener('change', loadImageFileAsURL)
     })
 }
+
+function searchByName(db, chatWithQuery) {
+    //var chatsRef = db.collection("chats");
+    //console.log(chatsRef);
+    //var queryList = chatsRef.where("chatWith", "==", chatWithQuery);
+    //clearChatDisplay();
+
+    db.collection("chats").where("chatWith", "==", chatWithQuery).get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            
+            displaySingleChat(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+
+    clearChatDisplay();
+}
+
+function displaySingleChat(data){
+    var imageLoaded = document.createElement("img");
+            imageLoaded.src = data.screenURL;
+            imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
+            document.getElementById("chatDisplay").prepend(imageLoaded);
+
+            imageLoaded.setAttribute("onclick", "onClick(this)");
+
+}
+
 
 //For each uploaded file (probably just 1), upload to cloud and run retrieveImageUrl (which downloads the file again and displays)
 function myFunction(memoizeRef){
@@ -117,7 +367,12 @@ function loadImageFileAsURL(e)
 }
 
 function clearChatDisplay(){
-    document.getElementById("chatDisplay").innerHTML = "";
+    //document.getElementById("chatDisplay").innerHTML = "is this working?";
+    //document.body.innerHTML = "is this working?";
+    /*window.onload = function what(){
+        document.getElementById('chatDisplay').innerHTML = 'hi';
+    };
+    */
 }
 
 function preloading(){
@@ -138,7 +393,7 @@ function retrieveImageUrl(memoizeRef, filename){
               var imageLoaded = document.createElement("img");
             imageLoaded.src = test;
             imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
-            document.getElementById("chatDisplay").appendChild(imageLoaded);
+            document.getElementById("chatDisplay").prepend(imageLoaded);
 
             imageLoaded.setAttribute("onclick", "onClick(this)");
             }).catch(function(error) {

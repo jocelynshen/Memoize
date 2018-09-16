@@ -95,6 +95,10 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
+
+
+
+
     </head>
     <body>
         <div class="w3-top">
@@ -104,25 +108,25 @@
                 <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large" href="#home" style="font-size:100%"> <strong>M&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;E</strong></a>          
             </div>
 
-            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-right w3-card w3-animate-top" onclick="toggleFunction()">
+            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-right w3-card w3-animate-top" ">
                 
-                <a class="w3-bar-item w3-button " onclick="toggleFunction()">
-                    <input type="text" placeholder="Search.." name="search">
-                      <button type="submit"><i class="fa fa-search"></i></button>
+                <a class="w3-bar-item w3-button " >
+                    <input type="text" placeholder="Search.." name="search" id="nameSearch" onsubmit="findName()">
+                      <button type="submit" ><i class="fa fa-search"></i></button>
                 </a>
-                <a class="w3-bar-item w3-button w3-center" onclick="toggleFunction()">
+                <a class="w3-bar-item w3-button w3-center" onclick="findFunny()">
                     <img src="Assets/funny.png" style="width:3em;height:auto;">
                 </a>
-                <a class="w3-bar-item w3-button w3-center" onclick="toggleFunction()">
+                <a class="w3-bar-item w3-button w3-center" onclick="findHappy()">
                     <img src="Assets/happy.png" style="width:3em;height:auto;">
                 </a>
-                <a class="w3-bar-item w3-button w3-center" onclick="toggleFunction()">
+                <a class="w3-bar-item w3-button w3-center" onclick="findAngry()">
                     <img src="Assets/angry.png" style="width:3em;height:auto;">
                 </a>
-                <a class="w3-bar-item w3-button w3-center" onclick="toggleFunction()">
+                <a class="w3-bar-item w3-button w3-center" onclick="findCry()">
                     <img src="Assets/cry.png" style="width:3em;height:auto;">
                 </a>
-                <a class="w3-bar-item w3-button w3-center" onclick="toggleFunction()">
+                <a class="w3-bar-item w3-button w3-center" onclick="findImportant()">
                     <img src="Assets/important.png" style="width:3em;height:auto;">
                 </a>
                 <a href="mission.html" class="w3-bar-item w3-button" style="text-align:center" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;WALKON's Mission&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -149,10 +153,10 @@
                 <p id="caption" class="w3-opacity w3-large"></p>
                  <div class="btn-group; w3-center">
                     <button type="button" onclick=makeAngry()><img src="Assets/angry.png" title="Angry" alt="Angry Emoticon" height="35 px" width="35 px"></button>
-                    <button type="button" href=""><img src="Assets/cry.png" title="Sad" alt="Sad Emoticon" height="35 px" width="35 px"></button>
-                    <button type="button" href=""><img src="Assets/funny.png" title="Funny" alt="Funny Emoticon" height="35 px" width="35 px"></button>
-                    <button type="button" href=""><img src="Assets/happy.png" title="Happy" alt="Happy Emoticon" height="35 px" width="35 px"></button>
-                    <button type="button" href=""><img src="Assets/important.png" title="Important" alt="Important Emoticon" height="35 px" width="35 px">
+                    <button type="button" onclick=makeCry()><img src="Assets/cry.png" title="Sad" alt="Sad Emoticon" height="35 px" width="35 px"></button>
+                    <button type="button" onclick=makeFunny()><img src="Assets/funny.png" title="Funny" alt="Funny Emoticon" height="35 px" width="35 px"></button>
+                    <button type="button" onclick=makeHappy()><img src="Assets/happy.png" title="Happy" alt="Happy Emoticon" height="35 px" width="35 px"></button>
+                    <button type="button" onclick=makeImportant()><img src="Assets/important.png" title="Important" alt="Important Emoticon" height="35 px" width="35 px">
                     </button>
             </div>
                 <div class="w3-center">
@@ -162,13 +166,12 @@
             </div>
         </div>
         <script>
-            var chatsRef = db.collection("chats");
-            console.log(chatsRef);
-            var query = chatsRef.where("chatWith", "==", "Soomin");
+              searchByName(db, "Joce");
+            
 
         </script>
         <div id="chatDisplay">
-          
+
         </div>
     </body>
 </html>
