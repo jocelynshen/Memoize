@@ -1,5 +1,37 @@
 // Modal Image Gallery
 // Used to toggle the menu on small screens when clicking on the menu button
+
+// Initialize Cloud Firestore through Firebase
+
+function initializeFirebase(){
+  var config = {
+                apiKey: "AIzaSyAg4AuCkuiw4VgVIYtFKU4JQgF0PzfzlTA",
+                authDomain: "memoize-216516.firebaseapp.com",
+                databaseURL: "https://memoize-216516.firebaseio.com",
+                projectId: "memoize-216516",
+                storageBucket: "memoize-216516.appspot.com",
+                messagingSenderId: "889544015679"
+            };
+            firebase.initializeApp(config);
+            
+
+            var db = firebase.firestore();
+            var storage = firebase.storage();
+            return [db,storage];
+
+}
+
+
+function addChat(db, chatWith, owner, screenURL){
+  db.collection("chats").add({
+                chatWith: chatWith,
+                screenURL: screenURL,
+                owner: owner,
+                born: new Date(Date.now()),
+            })
+
+}
+
 function toggleFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
