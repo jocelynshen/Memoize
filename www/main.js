@@ -115,6 +115,7 @@ function clearChatDisplay(){
     document.getElementById("chatDisplay").innerHTML = "";
 }
 
+
 //loads image file from storage
 function retrieveImageUrl(memoizeRef, filename){
      /*

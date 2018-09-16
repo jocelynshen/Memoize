@@ -6,14 +6,19 @@ body, html {
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    float:left;
+  float: middle;
+  padding: 6px 10px;
+  margin-top: 8px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.btn-group button{
+    background-color: white;
+    justify-content: 
+}
+
 }
 
 input[type=text] {
@@ -94,7 +99,7 @@ input[type=text] {
 }
 
 button {
-  float: right;
+  float: middle;
   padding: 6px 10px;
   margin-top: 8px;
   margin-right: 16px;

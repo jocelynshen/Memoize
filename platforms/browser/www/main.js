@@ -81,8 +81,7 @@ function myFunction(memoizeRef){
                 console.log(file);
                 //
                 retrieveImageUrl(memoizeRef, file.name);
-                clearChatDisplay();
-
+                
                 if ('name' in file) {
                     txt += "name: " + file.name + "<br>";
                 }
