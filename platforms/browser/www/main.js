@@ -22,11 +22,14 @@ function initializeFirebase(){
 }
 
 
-function addChat(db, chatWith, owner, screenURL){
+
+
+function addChat(db, chatWith, owner, emotion, screenURL){
   db.collection("chats").add({
                 chatWith: chatWith,
                 screenURL: screenURL,
                 owner: owner,
+                emotion: emotion,
                 born: new Date(Date.now()),
             })
 
@@ -112,6 +115,29 @@ function loadImageFileAsURL(e)
         }
     }
 }
+function retrieveImageUrl(memoizeRef){
+     /*
+            var storageRef = firebase.storage().ref();
+            var spaceRef = storageRef.child('images/photo_1.png');
+            var path = spaceRef.fullPath;
+            var gsReference = storage.refFromURL('gs://test.appspot.com')
+            */
+            memoizeRef.child('image.png').getDownloadURL().then(function(url) {
+              var test = url;
+              console.log("aaa")
+              console.log(test)
+              var imageLoaded = document.createElement("img");
+            imageLoaded.src = test;
+            imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
+            document.body.appendChild(imageLoaded);
+            }).catch(function(error) {
+
+            });
+            
+            //console.log(test)
+
+}
+
 main();
 
 
