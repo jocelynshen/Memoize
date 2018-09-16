@@ -126,8 +126,6 @@ function myFunction(memoizeRef){
     } 
 }
 
-var myHeaders =[];
-
 //Called when file selected from file dialogue, calls myFunction
 function loadImageFileAsURL(e)
 {
@@ -146,13 +144,16 @@ function loadImageFileAsURL(e)
 
 function clearChatDisplay(){
     //document.getElementById("chatDisplay").innerHTML = "is this working?";
-    document.body.innerHTML = "is this working?";
+    //document.body.innerHTML = "is this working?";
     /*window.onload = function what(){
         document.getElementById('chatDisplay').innerHTML = 'hi';
     };
     */
 }
 
+function preloading(){
+    
+}
 
 //loads image file from storage
 function retrieveImageUrl(memoizeRef, filename){
