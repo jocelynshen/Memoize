@@ -60,6 +60,7 @@ function main()
     })
 }
 
+
 function myFunction(memoizeRef){
     var x = document.getElementById("file");
     var txt = "";
@@ -70,13 +71,16 @@ function myFunction(memoizeRef){
             for (var i = 0; i < x.files.length; i++) {
                 txt += "<br><strong>" + (i+1) + ". file</strong><br>";
                 var file = x.files[i];
+                console.log("filenameis")
+                console.log(file)
                 //
-                memoizeRef.child("image.png").put(file);
+                memoizeRef.child(file.name).put(file);
                 console.log(memoizeRef.name);
                 console.log(memoizeRef.fullPath);
                 console.log(memoizeRef);
                 console.log(file);
                 //
+                retrieveImageUrl(memoizeRef, file.name);
 
                 if ('name' in file) {
                     txt += "name: " + file.name + "<br>";
@@ -111,14 +115,23 @@ function loadImageFileAsURL(e)
         }
     }
 }
-function retrieveImageUrl(memoizeRef){
+function retrieveImageUrl(memoizeRef, filename){
      /*
             var storageRef = firebase.storage().ref();
             var spaceRef = storageRef.child('images/photo_1.png');
             var path = spaceRef.fullPath;
             var gsReference = storage.refFromURL('gs://test.appspot.com')
             */
-            
+            memoizeRef.child(filename).getDownloadURL().then(function(url) {
+              var test = url;
+              console.log(test)
+              var imageLoaded = document.createElement("img");
+            imageLoaded.src = test;
+            imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
+            document.body.appendChild(imageLoaded);
+            }).catch(function(error) {
+
+            });
 }
 
 main();
