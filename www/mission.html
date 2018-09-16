@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Memoize</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" type="image/ico" href="/Assets/favicon.ico">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="w3-top">
+            <div class="w3-card w3-animate-top w3-black" id="myNavbar">
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
+                <i class="fa fa-caret-down " ></i></a>
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large" href="welcome.html" style="font-size:100%"> <strong>M&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;E</strong></a>          
+            </div>
+
+            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-right w3-card w3-animate-top" onclick="toggleFunction()">
+                
+                <a class="w3-bar-item w3-button " onclick="toggleFunction()">
+                    <input type="text" placeholder="Search.." name="search">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                </a>
+                <a href="mission.html" class="w3-bar-item w3-button" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;WALKON's Mission&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">&nbsp;&nbsp;&nbsp;&nbsp;Account&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>
+            
+        </div>
+        
+ 
+        <div class = "w3-top w3-center">
+<div class="w3-row-padding " >
+            <body bgcolor="#000000"></body>
+            <h4 class="w3-center" style="padding-top:2em; color:whitesmoke"><b><em>Walkon's Mission Statement</em></b></h4>
+        </div>
+        <div class="w3-row">
+        <div class="w3-column">
+        <img src="Assets/jocelyn.jpg" class="w3-image" alt="jocelyn" style="width:100px;height:100px;">
+        <img src="Assets/donggil.jpg" class="w3-image" alt="donggil" style="width:100px;height:100px;">
+        <img src="Assets/annie.jpg" class="w3-image" alt="annie" style="width:100px;height:100px;">
+        <img src="Assets/soomin.jpg" class="w3-image" alt="soomin" style="width:100px;height:100px;">
+            </div>
+        <div class="w3-column">
+                <p style="color:white; padding-left: 2em; padding-right: 2em;"> 
+                    Text messaging has become one of our most widely used forms of communication. Such a large quantity of messages are sent and received everyday, but few are saved and remembered. Our mission statement is to counteract the void digital communication has brought upon us by allowing users to "journal" and save their meaningful digital moments through image-to-text recognition and categorization. 
+                </p>
+                </div>
+            </div>    
+        </div>
+        
+        
+            
+        
+
+        <!-- Modal for full size images on click-->
+        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+            <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                <img id="img01" class="w3-image">
+                <p id="caption" class="w3-opacity w3-large"></p>
+            </div>
+        </div>
+        
+    </body>
+</html>
