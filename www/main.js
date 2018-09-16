@@ -167,31 +167,6 @@ function makeImportant(){
 
 ////////////////////FIND FUNCTIONS
 
-function randomInt(maxInt){
-    return Math.floor(Math.random() * Math.floor(max));
-}
-function findRandom(){
-    var uid = firebase.auth().currentUser.uid;
-    var dataList = [];
-    db.collection("chats").where("owner", "==", uid).get().then(function(querySnapshot) {
-
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            
-            //console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
-            dataList.push(doc.data());
-            console.log("getall");
-            console.log(doc.data());
-        });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
-    var randomIndex = randomInt(dataList.length);
-    displaySingleChat(dataList[randomIndex]);
-}
-
-
 function populate(){
     var uid = firebase.auth().currentUser.uid;
     db.collection("chats").where("owner", "==", uid).get().then(function(querySnapshot) {
