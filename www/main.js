@@ -47,9 +47,16 @@ $('.dots li').click(function(){
 
 function onClick(element) {
   document.getElementById("img01").src = element.src;
+    console.log(element.src)
   document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
+    
+}
+
+function setName(){
+    var name = document.getElementById('myText').value
+      console.log(name);
+    var captionText = document.getElementById("caption");
+      captionText.innerHTML = name;
 }
 
 function main()
