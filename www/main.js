@@ -81,7 +81,7 @@ function myFunction(memoizeRef){
                 console.log(file);
                 //
                 retrieveImageUrl(memoizeRef, file.name);
-
+                
                 if ('name' in file) {
                     txt += "name: " + file.name + "<br>";
                 }
@@ -111,6 +111,10 @@ function loadImageFileAsURL(e)
     }
 }
 
+function clearChatDisplay(){
+    document.getElementById("chatDisplay").innerHTML = "";
+}
+
 //loads image file from storage
 function retrieveImageUrl(memoizeRef, filename){
      /*
@@ -126,11 +130,11 @@ function retrieveImageUrl(memoizeRef, filename){
             imageLoaded.src = test;
             imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
             document.getElementById("chatDisplay").appendChild(imageLoaded);
+
+            imageLoaded.setAttribute("onclick", "onClick(this)");
             }).catch(function(error) {
 
             });
 }
 
 main();
-
-
