@@ -123,23 +123,15 @@
         <div class="w3-content w3-container w3-padding-64" id="about">
             
             <div class="w3-row w3-center">
-                <input type="file" name="file" id="file" class="inputfile" accept="image/*" capture="filesystem"/>
+                <input type="file" id="file" class="inputfile" accept="image/*" capture="filesystem"/>
+                <script>
+                    
+                </script>
                 <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button"><label for="file">ADD MEMO</label></span>
-
-               
-
-<<<<<<< HEAD
-
-=======
->>>>>>> ce636c1ea3e93ea3518cda81682b6a5c214adfb2
                 <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button">THROWBACK</span>
             </div>
         </div>
 
-<<<<<<< HEAD
-        
-=======
->>>>>>> ce636c1ea3e93ea3518cda81682b6a5c214adfb2
         <!-- Modal for full size images on click-->
         <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
             <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
@@ -148,61 +140,6 @@
                 <p id="caption" class="w3-opacity w3-large"></p>
             </div>
         </div>
-<<<<<<< HEAD
-
-
-        //////
-                <input type="file" id="myFile" multiple size="50" onchange="myFunction()">
-
-                    <p id="demo"></p>
-                        
-                    <script>
-                    function myFunction(){
-                        var x = document.getElementById("myFile");
-                        var txt = "";
-                        if ('files' in x) {
-                            if (x.files.length == 0) {
-                                txt = "Select one or more files.";
-                            } else {
-                                for (var i = 0; i < x.files.length; i++) {
-                                    txt += "<br><strong>" + (i+1) + ". file</strong><br>";
-                                    var file = x.files[i];
-                                    //
-                                    memoizeRef.child("image.png").put(file);
-                                    console.log(memoizeRef.name);
-                                    console.log(memoizeRef.fullPath);
-                                    console.log(memoizeRef);
-                                    console.log(file);
-                                    //
-
-                                    if ('name' in file) {
-                                        txt += "name: " + file.name + "<br>";
-                                    }
-                                    if ('size' in file) {
-                                        txt += "size: " + file.size + " bytes <br>";
-                                    }
-                                }
-                            }
-                        } 
-                        else {
-                            if (x.value == "") {
-                                txt += "Select one or more files.";
-                            } else {
-                                txt += "The files property is not supported by your browser!";
-                                txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
-                            }
-                        }
-                        document.getElementById("demo").innerHTML = txt;
-
-                    }
-                    </script>
-
-
-                ///
-
-        <script>
-            retrieveImageUrl(memoizeRef);
-        </script>
         <script>
             var chatsRef = db.collection("chats");
             console.log(chatsRef);
@@ -210,8 +147,5 @@
 
         </script>
 
-=======
->>>>>>> ce636c1ea3e93ea3518cda81682b6a5c214adfb2
-        
     </body>
 </html>
