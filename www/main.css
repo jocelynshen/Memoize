@@ -16,13 +16,11 @@ body, html {
     float:left;
 }
 
-#searchbar input[type=text]{
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
+input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
 }
 
 /* Create a Parallax Effect */
@@ -81,6 +79,16 @@ body, html {
 	z-index: -1;
 }
 
+button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
 
 .preload {
     width:100%;
