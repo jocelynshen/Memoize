@@ -60,6 +60,39 @@ function main()
     })
 }
 
+function searchByName(db, chatWithQuery) {
+    //var chatsRef = db.collection("chats");
+    //console.log(chatsRef);
+    //var queryList = chatsRef.where("chatWith", "==", chatWithQuery);
+    //clearChatDisplay();
+
+    db.collection("chats").where("chatWith", "==", chatWithQuery).get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            
+            console.log(doc.id, " => ", doc.data(), doc.data().chatWith);
+            
+            displaySingleChat(doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+
+    clearChatDisplay();
+}
+
+function displaySingleChat(data){
+    var imageLoaded = document.createElement("img");
+            imageLoaded.src = data.screenURL;
+            imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
+            document.getElementById("chatDisplay").prepend(imageLoaded);
+
+            imageLoaded.setAttribute("onclick", "onClick(this)");
+
+}
+
+
 //For each uploaded file (probably just 1), upload to cloud and run retrieveImageUrl (which downloads the file again and displays)
 function myFunction(memoizeRef){
     var x = document.getElementById("file");
@@ -112,7 +145,12 @@ function loadImageFileAsURL(e)
 }
 
 function clearChatDisplay(){
-    document.getElementById("chatDisplay").innerHTML = "";
+    //document.getElementById("chatDisplay").innerHTML = "is this working?";
+    document.body.innerHTML = "is this working?";
+    /*window.onload = function what(){
+        document.getElementById('chatDisplay').innerHTML = 'hi';
+    };
+    */
 }
 
 
@@ -130,7 +168,7 @@ function retrieveImageUrl(memoizeRef, filename){
               var imageLoaded = document.createElement("img");
             imageLoaded.src = test;
             imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
-            document.getElementById("chatDisplay").appendChild(imageLoaded);
+            document.getElementById("chatDisplay").prepend(imageLoaded);
 
             imageLoaded.setAttribute("onclick", "onClick(this)");
             }).catch(function(error) {
