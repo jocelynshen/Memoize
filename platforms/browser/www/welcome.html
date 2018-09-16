@@ -12,8 +12,85 @@
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+
         <script src="main.js"></script>
-        
+        <script>
+             // Initialize Firebase
+            var fb = initializeFirebase();
+            var db = fb[0];
+            var storage = fb[1];
+
+            db.settings({
+              timestampsInSnapshots: true
+            });
+
+
+            var storageRef = storage.ref();
+
+            // Create a reference to 'mountains.jpg'
+
+            var memoizeRef = storageRef.child('memoize/testing.jpg');
+
+            
+            
+            console.log(firebase.auth().currentUser);
+            firebase.auth().onAuthStateChanged(function(user) {
+                  if (user) {
+                    // User is signed in.
+                    console.log("signedin");
+                  } else {
+                    // No user is signed in.
+                    console.log("not");
+                  }
+                    var user = firebase.auth().currentUser;
+                    var name, email, photoUrl, uid, emailVerified;
+
+                    if (user != null) {
+                      name = user.displayName;
+                      email = user.email;
+                      photoUrl = user.photoURL;
+                      emailVerified = user.emailVerified;
+                      uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                                       // this value to authenticate with your backend server, if
+                                       // you have one. Use User.getToken() instead.
+                    }
+                    addChat(db, "Joce", uid, "www.url.com/screenshot.png");
+
+                });
+
+
+
+        </script>
+
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+
+
+
+        <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '/index.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+        // tosUrl and privacyPolicyUrl accept either url string or a callback
+        // function.
+        // Terms of service url/callback.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url/callback.
+        privacyPolicyUrl: function() {
+          window.location.assign('<your-privacy-policy-url>');
+        }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
     </head>
     <body>
         <div class="w3-top">
@@ -40,6 +117,60 @@
             <div class="w3-row w3-center">
                 <input type="file" name="file" id="file" class="inputfile" accept="image/*" capture="filesystem"/>
                 <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button"><label for="file">ADD MEMO</label></span>
+
+                //////
+                <input type="file" id="myFile" multiple size="50" onchange="myFunction()">
+
+                    <p id="demo"></p>
+                        
+                    <script>
+                    function myFunction(){
+                        var x = document.getElementById("myFile");
+                        var txt = "";
+                        if ('files' in x) {
+                            if (x.files.length == 0) {
+                                txt = "Select one or more files.";
+                            } else {
+                                for (var i = 0; i < x.files.length; i++) {
+                                    txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+                                    var file = x.files[i];
+                                    //
+                                    memoizeRef.put(file);
+                                    console.log(memoizeRef.name);
+                                    console.log(memoizeRef.fullPath);
+                                    console.log(memoizeRef);
+                                    console.log(file);
+                                    //
+
+                                    if ('name' in file) {
+                                        txt += "name: " + file.name + "<br>";
+                                    }
+                                    if ('size' in file) {
+                                        txt += "size: " + file.size + " bytes <br>";
+                                    }
+                                }
+                            }
+                        } 
+                        else {
+                            if (x.value == "") {
+                                txt += "Select one or more files.";
+                            } else {
+                                txt += "The files property is not supported by your browser!";
+                                txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+                            }
+                        }
+                        document.getElementById("demo").innerHTML = txt;
+
+                    }
+                    </script>
+
+
+                ///
+
+
+
+
+
                 <span class="w3-center w3-padding-large w3-black w3-medium w3-animate-opacity w3-button">THROWBACK</span>
             </div>
         </div>

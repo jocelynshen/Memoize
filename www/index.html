@@ -9,47 +9,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="main.css">
         <link rel="icon" type="image/ico" href="/Assets/favicon.ico">
-        <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
         <script src="main.js"></script>
-        <script>
-             // Initialize Firebase
-            var fb = initializeFirebase();
-            var db = fb[0];
-            var storage = fb[1];
 
-            db.settings({
-              timestampsInSnapshots: true
-            });
-
-            
-            console.log(firebase.auth().currentUser);
-            firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    console.log("signedin");
-  } else {
-    // No user is signed in.
-    console.log("not");
-  }
-    var user = firebase.auth().currentUser;
-    var name, email, photoUrl, uid, emailVerified;
-
-    if (user != null) {
-      name = user.displayName;
-      email = user.email;
-      photoUrl = user.photoURL;
-      emailVerified = user.emailVerified;
-      uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                       // this value to authenticate with your backend server, if
-                       // you have one. Use User.getToken() instead.
-    }
-    addChat(db, "Joce", uid, "www.url.com/screenshot.png");
-
-});
-
-
-
-        </script>
     </head>
     <body>
         <div class="preload">
@@ -72,7 +33,7 @@
             function frame() {
                 if(loading==100){
                     clearInterval(id);
-                    window.open("welcome.html", "_self");
+                    window.open("login.html", "_self");
                 }
                      else{
                 loading=loading+1;
