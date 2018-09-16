@@ -41,13 +41,12 @@ function loadImageFileAsURL(e)
             var fileReader = new FileReader();
             fileReader.onload = function(fileLoadedEvent) 
             {
-                
                 var imageLoaded = document.createElement("img");
                 var x = document.createElement("HEADER");
                 x.setAttribute("id", "myHeader");
                 x.setAttribute("class", "w3-center")
                 imageLoaded.src = fileLoadedEvent.target.result;
-                imageLoaded.className = "w3-image w3-padding-large";
+                imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
                 document.body.appendChild(x);
                 var today = new Date();
                 var dd = today.getDate();
@@ -70,8 +69,10 @@ function loadImageFileAsURL(e)
                     document.getElementById("myHeader").appendChild(y);
                     myHeaders.push(today);
                 }
-                
+                imageLoaded.onclick = onClick(imageLoaded);
+                imageLoaded.setAttribute("onclick", "onClick(this)")
                 document.body.appendChild(imageLoaded);
+                
                 
                 
             }
