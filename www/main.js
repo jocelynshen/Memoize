@@ -96,11 +96,18 @@ function loadImageFileAsURL(e)
     if (filesSelected.length > 0)
     {
         var fileToLoad = filesSelected[0];
-
+        console.log(filesSelected);
         if (fileToLoad.type.match("image.*"))
         {
             myFunction(memoizeRef);
-            retrieveImageUrl(memoizeRef);
+            memoizeRef.child('image.png').getDownloadURL().then(function(url) {
+              var test = url;
+              console.log(test)
+              var imageLoaded = document.createElement("img");
+            imageLoaded.setAttribute("src", test);
+            imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
+            document.body.appendChild(imageLoaded);
+            });
         }
     }
 }
@@ -111,16 +118,7 @@ function retrieveImageUrl(memoizeRef){
             var path = spaceRef.fullPath;
             var gsReference = storage.refFromURL('gs://test.appspot.com')
             */
-            memoizeRef.child('image.png').getDownloadURL().then(function(url) {
-              var test = url;
-              console.log(test)
-              var imageLoaded = document.createElement("img");
-            imageLoaded.src = test;
-            imageLoaded.className = "w3-image w3-padding-large w3-hover-opacity";
-            document.body.appendChild(imageLoaded);
-            }).catch(function(error) {
-
-            });
+            
 }
 
 main();
