@@ -8,12 +8,12 @@ Text messaging has become one of our most widely used forms of communication. Su
 1. In terminal, run `cordova run` in the Memoize directory
 
 ### Pages
-![1](https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l1.png)
+<img src="https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l1.png" width="250" height="400"/>
 
-![1](https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l2.png)
+<img src="https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l2.png" width="250" height="400" />
 
-![1](https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l3.png)
+<img src="https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l3.png" width="250" height="400" />
 
-![1](https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l4.png)
+<img src="https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l4.png" width="250" height="400" />
 
-![1](https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l5.png)
+<img src="https://raw.githubusercontent.com/jocelynshen/Memoize/master/www/Assets/l5.png" width="250" height="400" />
