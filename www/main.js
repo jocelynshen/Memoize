@@ -93,8 +93,6 @@ function myFunction(memoizeRef){
     } 
 }
 
-var myHeaders =[];
-
 //Called when file selected from file dialogue, calls myFunction
 function loadImageFileAsURL(e)
 {
@@ -113,6 +111,10 @@ function loadImageFileAsURL(e)
 
 function clearChatDisplay(){
     document.getElementById("chatDisplay").innerHTML = "";
+}
+
+function preloading(){
+    
 }
 
 //loads image file from storage

@@ -81,8 +81,7 @@ function myFunction(memoizeRef){
                 console.log(file);
                 //
                 retrieveImageUrl(memoizeRef, file.name);
-                clearChatDisplay();
-
+                
                 if ('name' in file) {
                     txt += "name: " + file.name + "<br>";
                 }
@@ -93,8 +92,6 @@ function myFunction(memoizeRef){
         }
     } 
 }
-
-var myHeaders =[];
 
 //Called when file selected from file dialogue, calls myFunction
 function loadImageFileAsURL(e)
@@ -114,6 +111,10 @@ function loadImageFileAsURL(e)
 
 function clearChatDisplay(){
     document.getElementById("chatDisplay").innerHTML = "";
+}
+
+function preloading(){
+    
 }
 
 //loads image file from storage
